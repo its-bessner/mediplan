@@ -1,0 +1,98 @@
+$backgroundDefault: #1669aa;
+$backgroundDefaultActive: #a1aab1;
+$backgroundDefaultSelected: #dbe3ea;
+$backgroundDefaultSelectedActive: #84878a;
+$backgroundHead: #215a7e;
+$colorHead: white;
+$backgroundEven: #3782bd;
+$backgroundEvenActive: #9dadba;
+$backgroundHighlight: #ffb700;
+$backgroundHighlight: #0ee8d6;
+$colorSelected: white;
+
+$lightRate: 15%;
+
+.selected {
+  color: $colorSelected;
+}
+
+.head {
+  background: $backgroundHead;
+  color: $colorHead;
+}
+
+div {
+  font-size: 15pt;
+  background: $backgroundDefault;
+
+  &.selected {
+    background: darken($backgroundDefault, $lightRate);
+  }
+
+  &.active {
+    background: $backgroundDefaultActive;
+    &.selected {
+      background: darken($backgroundDefaultActive, $lightRate);
+    }
+  }
+}
+
+.even {
+  background-color: $backgroundEven;
+  &.selected {
+    background-color: darken($backgroundEven, $lightRate);
+  }
+
+  &.active {
+    background-color: $backgroundEvenActive;
+    &.selected {
+      background-color: darken($backgroundEvenActive, $lightRate);
+    }
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.highlight {
+  background: $backgroundHighlight;
+  &.selected {
+    background: darken($backgroundHighlight, $lightRate);
+  }
+}
+
+.div-table {
+  border: 1px solid #514f4f;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 0;
+  border-left: 0;
+
+  div {
+    text-align: center;
+    border: 1px solid #989898;
+    padding: 10px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+
+}
+
+body {
+  background: $backgroundDefault;
+}
+
+$borderWidth: 5pt;
+$borderColor: white;
+
+.selected {
+    border-top: $borderWidth solid $borderColor !important;
+    border-bottom: $borderWidth solid $borderColor !important;
+  }
+
+
+
+
+
