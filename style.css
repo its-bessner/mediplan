@@ -11,9 +11,11 @@ div {
   div.selected {
     background: #0d3f66; }
   div.active {
-    background: #a1aab1; }
-    div.active.selected {
-      background: #77848e; }
+    background: #2992e3; }
+    div.active.even {
+      background: #56a9e9; }
+      div.active.even.highlight {
+        background: #ffdb80; }
 
 .even {
   background-color: #3782bd; }

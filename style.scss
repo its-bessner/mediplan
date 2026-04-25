@@ -30,9 +30,14 @@ div {
   }
 
   &.active {
-    background: $backgroundDefaultActive;
+    background: lighten($backgroundDefault, 15%);
+    &.even {
+      background: lighten($backgroundDefault, 25%);
+      &.highlight {
+        background: lighten($backgroundHighlight, 25%);
+      }
+    }
     &.selected {
-      background: darken($backgroundDefaultActive, $lightRate);
     }
   }
 }

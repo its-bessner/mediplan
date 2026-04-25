@@ -12,6 +12,7 @@ const data = [
     [11, "Quilonum", 0, 0, 0, 1.5],
     [12, "Risperidon", 0, 0, 0, 1],
 ]
+let rowSelectedIndex = null;
 const arrange = () => {
     const indexHighlight = 3;
     const groups = [];
@@ -53,20 +54,53 @@ const arrange = () => {
             newCol.addEventListener("click", () => {
                 clearClass('selected')
                 setClass(newCol, group,"selected");
+                rowSelectedIndex = rowindex;
+                console.log(rowSelectedIndex);
             })
-            newCol.addEventListener("mouseover", () => {
-                return;
+            newCol.addEventListener("" +
+                "mouseover", () => {
                 setClass(newCol, group,"active");
             })
             newCol.addEventListener("mouseout", () => {
-                return;
+
                 clearClass("active");
             })
 
         })
+
         document.body.onkeyup = e => {
            if (e.key === "Escape") {
                clearClass("selected");
+               rowSelectedIndex = null;
+           }
+           if(e.key === "ArrowUp") {
+               if(rowSelectedIndex === null) {
+                   rowSelectedIndex = groups.length - 1;
+               }
+               else {
+                   rowSelectedIndex = Math.max(rowSelectedIndex -1,0);
+               }
+
+               row = row > 0 ? row - 1 : 0;
+               let group = groups[rowSelectedIndex];
+               clearClass("selected");
+               setClass(row, group, "selected");
+           }
+
+           if(e.key === "ArrowDown" || e.key === "Enter") {
+               if(rowSelectedIndex === null) {
+                   rowSelectedIndex = 0;
+               }
+               else {
+                   rowSelectedIndex = Math.min(rowSelectedIndex +1,groups.length - 1);
+               }
+
+
+
+               let group = groups[rowSelectedIndex];
+               clearClass("selected");
+               setClass(row, group, "selected");
+
            }
         }
     })
