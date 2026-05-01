@@ -16,6 +16,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 38317
-          script:
+          script: | 
             cd /var/www/html/mediplan
             git pull
