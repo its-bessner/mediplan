@@ -87,6 +87,16 @@ const arrange = () => {
                setClass(row, group, "selected");
            }
 
+           if(e.key === "Home") {
+               rowSelectedIndex = 0;
+               clearClass("selected");
+               setClass(0, groups[0], "selected");
+           }
+           if(e.key === "End") {
+               rowSelectedIndex = groups.length - 1;
+               clearClass("selected");
+               setClass(rowSelectedIndex, groups[rowSelectedIndex], "selected");
+           }
            if(e.key === "ArrowDown" || e.key === "Enter") {
                if(rowSelectedIndex === null) {
                    rowSelectedIndex = 0;
@@ -94,9 +104,6 @@ const arrange = () => {
                else {
                    rowSelectedIndex = Math.min(rowSelectedIndex +1,groups.length - 1);
                }
-
-
-
                let group = groups[rowSelectedIndex];
                clearClass("selected");
                setClass(row, group, "selected");
