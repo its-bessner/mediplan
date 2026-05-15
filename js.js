@@ -14,7 +14,7 @@ const data = [
 ]
 let rowSelectedIndex = null;
 const arrange = () => {
-    const indexHighlight = 3;
+    const indexHighlight = 2;
     const groups = [];
     const clearClass = (classname) => {
         groups.forEach((group) => {
@@ -38,7 +38,7 @@ const arrange = () => {
             const newCol = document.createElement("div");
             newCol.innerHTML = value;
 
-            if ((index === 2 & !value) || (index >= indexHighlight && value)) {
+            if (index >= indexHighlight && value) {
                 newCol.classList.add("highlight");
             } else {
 
